@@ -136,7 +136,7 @@ Nov 12, 2015.
 def InvisiblePoints():
 	myPoints = importPoints('points.csv', 3) # Import the Given Point Cloud
 
-	############################ Method 1: Use an flg array indicating visibility, most efficent in speed and memory ############################
+	############################ Method 1: Use a flag array indicating visibility, most efficent in speed and memory ############################
 	flag = np.zeros(len(myPoints), int) # Initialize the points visible from possible 6 locations. 0 - Invisible; 1 - Visible.
 	C = np.array([[[0,0,100]], [[0,0,-100]], [[0,100,0]], [[0,-100,0]], [[100,0,0]], [[-100,0,0]]])  # List of Centers
 	for c in C:
@@ -147,7 +147,7 @@ def InvisiblePoints():
 	invisibleId = np.where(flag == 0)[0] # indexes of the invisible points
 
 
-	# Plot for method 3
+	# Plot for method 1
 	fig = plt.figure(figsize = plt.figaspect(0.5))
 	plt.title('Cloud Points With All Points (Left) vs. Invisible Points (Right)')
 	
